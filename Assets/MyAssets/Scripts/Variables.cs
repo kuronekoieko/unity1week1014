@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Variables  {
+public class Variables {
     public static GameState gameState;
-
+    public static SusiGetaState susiGetaState;
 }
