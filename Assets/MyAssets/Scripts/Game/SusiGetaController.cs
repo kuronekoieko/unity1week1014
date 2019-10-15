@@ -5,6 +5,7 @@ using UnityEngine;
 public class SusiGetaController : MonoBehaviour {
 
     [SerializeField] SpriteRenderer netaSR;
+    NetaType netaType;
 
     // Start is called before the first frame update
     public void OnStart () {
@@ -30,5 +31,6 @@ public class SusiGetaController : MonoBehaviour {
 
     void OnTriggerEnter2D (Collider2D other) {
         netaSR.gameObject.SetActive (false);
+        UIManager.i.GetNeta (netaType);
     }
 }

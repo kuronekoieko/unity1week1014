@@ -1,0 +1,45 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class UIManager : MonoBehaviour {
+
+    [SerializeField] GetNetaView getNetaViewPrefab;
+    [SerializeField] RectTransform getNetaViewParent;
+    GetNetaView[] netaViews;
+    Vector2 offset = new Vector2 (60f, 0f);
+    Vector2 startPos = new Vector2 (-335.4f, 192.2f);
+
+    public static UIManager i;
+
+    // Start is called before the first frame update
+    public void OnStart () {
+        NetaViewGenerator ();
+        i = this;
+    }
+    void NetaViewGenerator () {
+        netaViews = new GetNetaView[3];
+
+        Vector2 pos = startPos;
+
+        for (int i = 0; i < netaViews.Length; i++) {
+            netaViews[i] = Instantiate (
+                getNetaViewPrefab,
+                Vector3.zero,
+                Quaternion.identity,
+                getNetaViewParent);
+            netaViews[i].OnStart (pos);
+            pos += offset;
+        }
+    }
+
+    public void GetNeta (NetaType netaType) {
+        for (int i = 0; i < netaViews.Length; i++) {
+
+            if (!netaViews[i].isFillGeta) {
+                netaViews[i].SetNeta (netaType);
+                return;
+            }
+        }
+    }
+}
