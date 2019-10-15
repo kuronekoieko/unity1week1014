@@ -9,3 +9,7 @@ public enum SusiGetaState {
     MOVING,
     MOVE_END,
 }
+
+public enum NetaType {
+    MAGURO,
+}
