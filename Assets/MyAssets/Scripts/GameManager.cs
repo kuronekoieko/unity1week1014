@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     [SerializeField] SusiGetaManager susiGetaManager;
+    [SerializeField] HandController handController;
     // Start is called before the first frame update
     void Start () {
         Variables.gameState = GameState.GAME;
@@ -19,6 +20,9 @@ public class GameManager : MonoBehaviour {
                 break;
             case GameState.GAME:
                 susiGetaManager.OnUpdate ();
+                if (Input.GetMouseButtonDown (0)) {
+                    handController.MoveHand ();
+                }
                 break;
             case GameState.RESULT:
                 break;
