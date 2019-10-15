@@ -4,9 +4,11 @@ using DG.Tweening;
 using UnityEngine;
 public class SusiGetaController : MonoBehaviour {
 
+    [SerializeField] SpriteRenderer netaSR;
+
     // Start is called before the first frame update
     public void OnStart () {
-       
+
     }
 
     // Update is called once per frame
@@ -24,5 +26,9 @@ public class SusiGetaController : MonoBehaviour {
         ).OnComplete (() => {
             Variables.susiGetaState = SusiGetaState.MOVE_END;
         });
+    }
+
+    void OnTriggerEnter2D (Collider2D other) {
+        netaSR.gameObject.SetActive (false);
     }
 }

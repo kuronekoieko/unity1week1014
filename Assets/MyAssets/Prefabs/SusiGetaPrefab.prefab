@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 24170010639294928}
   - component: {fileID: 1573494590714708836}
+  - component: {fileID: 7484080302914091211}
   m_Layer: 0
   m_Name: SusiGetaPrefab
   m_TagString: Untagged
@@ -45,6 +46,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70549abcf58fa4e72b3940f8d508d16e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  netaSR: {fileID: 6615958363824768544}
+--- !u!58 &7484080302914091211
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105710794754376164}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.4}
+  serializedVersion: 2
+  m_Radius: 0.8
 --- !u!1 &6615958363044295624
 GameObject:
   m_ObjectHideFlags: 0

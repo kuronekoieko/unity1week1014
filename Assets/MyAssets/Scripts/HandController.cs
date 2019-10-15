@@ -35,5 +35,5 @@ public class HandController : MonoBehaviour {
         ).OnComplete (() => {
             isMoving = false;
         });
-    }
+    }   
 }
