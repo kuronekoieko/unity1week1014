@@ -883,6 +883,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1518998266}
+  - component: {fileID: 1518998267}
   m_Layer: 0
   m_Name: People
   m_TagString: Untagged
@@ -906,6 +907,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1518998267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518998265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59316070d387e4fc39bf7da54ddc8cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetSR: {fileID: 1979723065}
 --- !u!1 &1531406854
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,6 +1126,7 @@ MonoBehaviour:
   susiGetaManager: {fileID: 827581180}
   handController: {fileID: 1531406857}
   uIManager: {fileID: 830268815}
+  targetController: {fileID: 1518998267}
 --- !u!4 &1607064489
 Transform:
   m_ObjectHideFlags: 0

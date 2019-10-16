@@ -21,18 +21,31 @@ public class SusiGetaController : MonoBehaviour {
     public void MoveStart (Vector2 offset) {
 
         Vector2 pos = (Vector2) transform.position + offset;
-        //1秒で座標（1,1,1）に移動
+
+        /*  //1秒で座標（1,1,1）に移動
         transform.DOMove (
             pos, 　　 //移動後の座標
             1.0f　　　　　　 //時間
         ).OnComplete (() => {
             Variables.susiGetaState = SusiGetaState.MOVE_END;
         });
+*/
+
+        transform
+            .DOJump (pos, 1, 1, 1.0f)
+            .SetEase (Ease.Linear)
+            .OnComplete (() => {
+                Variables.susiGetaState = SusiGetaState.MOVE_END;
+            });
+
     }
 
     void OnTriggerEnter2D (Collider2D other) {
-        netaSR.gameObject.SetActive (false);
-        UIManager.i.GetNeta (netaType);
+
+        if (TargetController.i.IsTarget (netaType)) {
+            UIManager.i.GetNeta (netaType);
+            netaSR.gameObject.SetActive (false);
+        }
     }
 
     public void SetNeta (NetaType netaType) {
