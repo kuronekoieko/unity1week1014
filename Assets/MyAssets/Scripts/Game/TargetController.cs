@@ -14,7 +14,7 @@ public class TargetController : MonoBehaviour {
 
     public void Init () {
         targetIndex = 0;
-        targetNetaType = StageData.i.list[Variables.stageIndex].netas[targetIndex];
+        targetNetaType = StageData.i.list[Variables.stageIndex].targets[targetIndex];
         SetTargetSprite ();
     }
 
@@ -34,7 +34,7 @@ public class TargetController : MonoBehaviour {
                 return true;
             }
             targetIndex++;
-            targetNetaType = StageData.i.list[Variables.stageIndex].netas[targetIndex];
+            targetNetaType = StageData.i.list[Variables.stageIndex].targets[targetIndex];
             SetTargetSprite ();
             return true;
         } else {

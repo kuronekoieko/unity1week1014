@@ -3,6 +3,7 @@
     GAME,
     CLEAR,
     FAILED,
+    RESULT,
 }
 
 public enum SusiGetaState {

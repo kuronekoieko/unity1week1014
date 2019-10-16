@@ -39,8 +39,13 @@ public class GameManager : MonoBehaviour {
             case GameState.CLEAR:
                 uIManager.ShowResultText ("クリア");
                 if (Input.GetMouseButtonDown (0)) {
-                    Variables.gameState = GameState.START;
-                    Variables.stageIndex++;
+                    if (StageData.i.list.Count == Variables.stageIndex + 1) {
+                        Debug.Log ("全クリ");
+                        Variables.gameState = GameState.RESULT;
+                    } else {
+                        Variables.gameState = GameState.START;
+                        Variables.stageIndex++;
+                    }
                 }
                 break;
             case GameState.FAILED:
@@ -49,6 +54,9 @@ public class GameManager : MonoBehaviour {
                     Variables.gameState = GameState.START;
                     Variables.stageIndex = 0;
                 }
+                break;
+            case GameState.RESULT:
+
                 break;
             default:
                 break;

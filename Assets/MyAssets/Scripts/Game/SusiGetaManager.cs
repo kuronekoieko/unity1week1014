@@ -17,8 +17,10 @@ public class SusiGetaManager : MonoBehaviour {
 
     public void Init () {
         for (int i = 0; i < susis.Length; i++) {
-
+            int index = Random.Range (0, StageData.i.list[Variables.stageIndex].getas.Length);
+            NetaType netaType = StageData.i.list[Variables.stageIndex].getas[index];
             susis[i].Init ();
+            susis[i].SetNeta (netaType);
         }
     }
 
@@ -51,9 +53,6 @@ public class SusiGetaManager : MonoBehaviour {
                 Quaternion.identity,
                 transform);
             susis[i].OnStart ();
-            int index = Random.Range (0, NetaData.i.netaProperties.Length);
-            NetaType netaType = NetaData.i.netaProperties[index].netaType;
-            susis[i].SetNeta (netaType);
         }
     }
 
@@ -66,8 +65,8 @@ public class SusiGetaManager : MonoBehaviour {
     }
 
     void BorderCheck () {
-        int index = Random.Range (0, NetaData.i.netaProperties.Length);
-        NetaType netaType = NetaData.i.netaProperties[index].netaType;
+        int index = Random.Range (0, StageData.i.list[Variables.stageIndex].getas.Length);
+        NetaType netaType = StageData.i.list[Variables.stageIndex].getas[index];
         Vector2 loopPos = new Vector2 (-startPos.x, startPos.y);
         for (int i = 0; i < susis.Length; i++) {
             if (susis[i].transform.position.x < -7f) {

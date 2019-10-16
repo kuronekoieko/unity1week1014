@@ -56,6 +56,7 @@ public class SusiGetaController : MonoBehaviour {
         NetaProperty netaProperty = NetaData.i.netaProperties
             .Where (i => i.netaType == netaType)
             .FirstOrDefault ();
+
         if (netaProperty == null) { return; }
         this.netaType = netaType;
         netaSR.sprite = netaProperty.sprite;

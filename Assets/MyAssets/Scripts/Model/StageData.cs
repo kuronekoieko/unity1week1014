@@ -27,5 +27,7 @@ public class StageData : ScriptableObject {
 
 [System.Serializable]
 public class StageProperty {
-    public NetaType[] netas;
+    public NetaType[] targets;
+    public NetaType[] getas;
+
 }
