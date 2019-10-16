@@ -15,6 +15,13 @@ public class SusiGetaManager : MonoBehaviour {
         Variables.susiGetaState = SusiGetaState.MOVE_START;
     }
 
+    public void Init () {
+        for (int i = 0; i < susis.Length; i++) {
+
+            susis[i].Init ();
+        }
+    }
+
     // Update is called once per frame
     public void OnUpdate () {
         switch (Variables.susiGetaState) {

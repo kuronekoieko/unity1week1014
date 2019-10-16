@@ -11,8 +11,12 @@ public class GetNetaView : MonoBehaviour {
 
     // Start is called before the first frame update
     public void OnStart (Vector2 pos) {
-        netaImage.gameObject.SetActive (false);
         GetComponent<RectTransform> ().anchoredPosition = pos;
+    }
+
+    public void Init () {
+        netaImage.gameObject.SetActive (false);
+        isFillGeta = false;
     }
 
     public void SetNeta (NetaType netaType) {

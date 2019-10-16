@@ -13,6 +13,10 @@ public class SusiGetaController : MonoBehaviour {
 
     }
 
+    public void Init () {
+        netaSR.gameObject.SetActive (true);
+    }
+
     // Update is called once per frame
     public void OnUpdate () {
 

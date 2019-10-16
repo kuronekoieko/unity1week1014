@@ -10,10 +10,16 @@ public class GameManager : MonoBehaviour {
     [SerializeField] TargetController targetController;
     // Start is called before the first frame update
     void Start () {
-        Variables.gameState = GameState.GAME;
+        Variables.gameState = GameState.START;
         susiGetaManager.OnStart ();
         uIManager.OnStart ();
         targetController.OnStart ();
+    }
+
+    void Init () {
+        susiGetaManager.Init ();
+        uIManager.Init ();
+        targetController.Init ();
     }
 
     // Update is called once per frame
@@ -21,6 +27,8 @@ public class GameManager : MonoBehaviour {
 
         switch (Variables.gameState) {
             case GameState.START:
+                Init ();
+                Variables.gameState = GameState.GAME;
                 break;
             case GameState.GAME:
                 susiGetaManager.OnUpdate ();
@@ -28,7 +36,19 @@ public class GameManager : MonoBehaviour {
                     handController.MoveHand ();
                 }
                 break;
-            case GameState.RESULT:
+            case GameState.CLEAR:
+                uIManager.ShowResultText ("クリア");
+                if (Input.GetMouseButtonDown (0)) {
+                    Variables.gameState = GameState.START;
+                    Variables.stageIndex++;
+                }
+                break;
+            case GameState.FAILED:
+                uIManager.ShowResultText ("ゲームオーバー");
+                if (Input.GetMouseButtonDown (0)) {
+                    Variables.gameState = GameState.START;
+                    Variables.stageIndex = 0;
+                }
                 break;
             default:
                 break;

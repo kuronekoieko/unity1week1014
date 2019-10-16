@@ -1,7 +1,8 @@
 ﻿public enum GameState {
     START,
     GAME,
-    RESULT,
+    CLEAR,
+    FAILED,
 }
 
 public enum SusiGetaState {

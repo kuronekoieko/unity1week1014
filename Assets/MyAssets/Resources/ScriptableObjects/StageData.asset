@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: StageData
   m_EditorClassIdentifier: 
   list:
-  - netas: 030000000100000002000000
-  - netas: 
+  - netas: 000000000000000000000000
+  - netas: 000000000300000000000000
   - netas: 
   - netas: 
   - netas: 

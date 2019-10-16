@@ -5,13 +5,16 @@ using UnityEngine;
 public class TargetController : MonoBehaviour {
     [SerializeField] SpriteRenderer targetSR;
     NetaType targetNetaType;
-    int stageIndex;
     int targetIndex;
 
     public static TargetController i;
     public void OnStart () {
         i = this;
-        targetNetaType = StageData.i.list[stageIndex].netas[targetIndex];
+    }
+
+    public void Init () {
+        targetIndex = 0;
+        targetNetaType = StageData.i.list[Variables.stageIndex].netas[targetIndex];
         SetTargetSprite ();
     }
 
@@ -27,14 +30,15 @@ public class TargetController : MonoBehaviour {
 
         if (targetNetaType == netaType) {
             if (targetIndex == 2) {
-                Variables.gameState = GameState.RESULT;
+                Variables.gameState = GameState.CLEAR;
                 return true;
             }
             targetIndex++;
-            targetNetaType = StageData.i.list[stageIndex].netas[targetIndex];
+            targetNetaType = StageData.i.list[Variables.stageIndex].netas[targetIndex];
             SetTargetSprite ();
             return true;
         } else {
+            Variables.gameState = GameState.FAILED;
             return false;
         }
     }

@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
     [SerializeField] GetNetaView getNetaViewPrefab;
     [SerializeField] RectTransform getNetaViewParent;
+    [SerializeField] Text resultText;
+    [SerializeField] Text stageNumText;
     GetNetaView[] netaViews;
     Vector2 offset = new Vector2 (60f, 0f);
     Vector2 startPos = new Vector2 (-335.4f, 192.2f);
@@ -17,6 +20,15 @@ public class UIManager : MonoBehaviour {
         NetaViewGenerator ();
         i = this;
     }
+
+    public void Init () {
+        for (int i = 0; i < netaViews.Length; i++) {
+            netaViews[i].Init ();
+        }
+        resultText.gameObject.SetActive (false);
+        stageNumText.text = "ステージ" + (Variables.stageIndex + 1);
+    }
+
     void NetaViewGenerator () {
         netaViews = new GetNetaView[3];
 
@@ -41,5 +53,10 @@ public class UIManager : MonoBehaviour {
                 return;
             }
         }
+    }
+
+    public void ShowResultText (string result) {
+        resultText.gameObject.SetActive (true);
+        resultText.text = result;
     }
 }
