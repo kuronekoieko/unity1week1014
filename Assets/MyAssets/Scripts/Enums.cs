@@ -12,4 +12,7 @@ public enum SusiGetaState {
 
 public enum NetaType {
     MAGURO,
+    SARMON,
+    TORO,
+    NATTOU_MAKI
 }

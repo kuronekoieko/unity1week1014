@@ -15,11 +15,9 @@ MonoBehaviour:
   netaProperties:
   - netaType: 0
     sprite: {fileID: 21300000, guid: ee5515d8c0b1f4a47a9a90a0ae54ed52, type: 3}
-  - netaType: 0
-    sprite: {fileID: 0}
-  - netaType: 0
-    sprite: {fileID: 0}
-  - netaType: 0
-    sprite: {fileID: 0}
-  - netaType: 0
-    sprite: {fileID: 0}
+  - netaType: 1
+    sprite: {fileID: 21300000, guid: 6f3ea977d024d4172a8d618a5c5e465d, type: 3}
+  - netaType: 2
+    sprite: {fileID: 21300000, guid: 98e413c75dcce48b7a62d1f80e9d4659, type: 3}
+  - netaType: 3
+    sprite: {fileID: 21300000, guid: 4efe05408f60b4b02907c95586b43955, type: 3}

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 public class SusiGetaController : MonoBehaviour {
@@ -32,5 +33,15 @@ public class SusiGetaController : MonoBehaviour {
     void OnTriggerEnter2D (Collider2D other) {
         netaSR.gameObject.SetActive (false);
         UIManager.i.GetNeta (netaType);
+    }
+
+    public void SetNeta (NetaType netaType) {
+        NetaProperty netaProperty = NetaData.i.netaProperties
+            .Where (i => i.netaType == netaType)
+            .FirstOrDefault ();
+        if (netaProperty == null) { return; }
+        this.netaType = netaType;
+        netaSR.sprite = netaProperty.sprite;
+        netaSR.gameObject.SetActive (true);
     }
 }
