@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour {
     void OnClickRetryButton () {
         Variables.gameState = GameState.START;
         Variables.stageIndex = 0;
-        Debug.Log ("aaaaaaaaaaaaaaaaaaaaaa");
+        UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync ("Ranking");
     }
     void OnClickTweetButton () {
 
