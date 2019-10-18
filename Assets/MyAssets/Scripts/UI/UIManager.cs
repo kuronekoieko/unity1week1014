@@ -73,7 +73,12 @@ public class UIManager : MonoBehaviour {
         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync ("Ranking");
     }
     void OnClickTweetButton () {
-
+        string tweetText = "あなたのスコアは…\n\n" +
+            "ステージ：" + (Variables.stageIndex + 1) +
+            "\n\nでした！！みんなもやってみよう！！" +
+            "\n\n#Osushi\n#unity1week\n";
+        naichilab.UnityRoomTweet.Tweet ("", tweetText);
+        //AudioManager.i.PlayOneShot (0);
     }
 
     public void SetActiveButtons (bool isActive) {
