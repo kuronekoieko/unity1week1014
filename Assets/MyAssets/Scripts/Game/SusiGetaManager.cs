@@ -7,7 +7,7 @@ public class SusiGetaManager : MonoBehaviour {
     [SerializeField] SusiGetaController susiGetaPrefab;
     SusiGetaController[] susis;
     Vector2 offset = new Vector2 (3.2f, 0f);
-    Vector2 startPos = new Vector2 (-9.6f, 0.67f);
+    Vector2 startPos = new Vector3 (-9.6f, 0.67f, -1f);
 
     // Start is called before the first frame update
     public void OnStart () {

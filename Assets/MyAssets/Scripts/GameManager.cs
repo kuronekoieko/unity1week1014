@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour {
                 break;
             case GameState.RESULT:
                 uIManager.SetActiveButtons (isActive: true);
-                naichilab.RankingLoader.Instance.SendScoreAndShowRanking (100);
+                naichilab.RankingLoader.Instance.SendScoreAndShowRanking (Variables.stageIndex + 1);
                 Variables.gameState = GameState.DEFAULT;
                 break;
             default:
