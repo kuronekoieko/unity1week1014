@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour {
     [SerializeField] RectTransform getNetaViewParent;
     [SerializeField] Text resultText;
     [SerializeField] Text stageNumText;
+    [SerializeField] Button retryButton;
+    [SerializeField] Button tweetButton;
+
     GetNetaView[] netaViews;
     Vector2 offset = new Vector2 (60f, 0f);
     Vector2 startPos = new Vector2 (-335.4f, 192.2f);
@@ -19,6 +22,9 @@ public class UIManager : MonoBehaviour {
     public void OnStart () {
         NetaViewGenerator ();
         i = this;
+        retryButton.onClick.AddListener (OnClickRetryButton);
+        tweetButton.onClick.AddListener (OnClickTweetButton);
+
     }
 
     public void Init () {
@@ -27,6 +33,7 @@ public class UIManager : MonoBehaviour {
         }
         resultText.gameObject.SetActive (false);
         stageNumText.text = "ステージ" + (Variables.stageIndex + 1);
+        SetActiveButtons (isActive: false);
     }
 
     void NetaViewGenerator () {
@@ -59,4 +66,19 @@ public class UIManager : MonoBehaviour {
         resultText.gameObject.SetActive (true);
         resultText.text = result;
     }
+
+    void OnClickRetryButton () {
+        Variables.gameState = GameState.START;
+        Variables.stageIndex = 0;
+        Debug.Log ("aaaaaaaaaaaaaaaaaaaaaa");
+    }
+    void OnClickTweetButton () {
+
+    }
+
+    public void SetActiveButtons (bool isActive) {
+        retryButton.gameObject.SetActive (isActive);
+        tweetButton.gameObject.SetActive (isActive);
+    }
+
 }

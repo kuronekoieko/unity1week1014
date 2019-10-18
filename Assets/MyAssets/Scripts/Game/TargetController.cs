@@ -38,7 +38,7 @@ public class TargetController : MonoBehaviour {
             SetTargetSprite ();
             return true;
         } else {
-            Variables.gameState = GameState.FAILED;
+            Variables.gameState = GameState.RESULT;
             return false;
         }
     }

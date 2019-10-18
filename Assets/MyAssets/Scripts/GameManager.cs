@@ -48,15 +48,10 @@ public class GameManager : MonoBehaviour {
                     }
                 }
                 break;
-            case GameState.FAILED:
-                uIManager.ShowResultText ("ゲームオーバー");
-                if (Input.GetMouseButtonDown (0)) {
-                    Variables.gameState = GameState.START;
-                    Variables.stageIndex = 0;
-                }
-                break;
             case GameState.RESULT:
-
+                uIManager.SetActiveButtons (isActive: true);
+                naichilab.RankingLoader.Instance.SendScoreAndShowRanking (100);
+                Variables.gameState = GameState.DEFAULT;
                 break;
             default:
                 break;

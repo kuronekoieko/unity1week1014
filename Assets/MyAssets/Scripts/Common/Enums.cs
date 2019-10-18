@@ -1,8 +1,9 @@
 ﻿public enum GameState {
+    DEFAULT,
     START,
     GAME,
+    NEXT_STAGE,
     CLEAR,
-    FAILED,
     RESULT,
 }
 
