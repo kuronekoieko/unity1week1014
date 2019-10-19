@@ -16,6 +16,7 @@ public class SusiGetaController : MonoBehaviour {
 
     public void Init () {
         netaSR.gameObject.SetActive (true);
+        explosion.gameObject.SetActive (false);
     }
 
     // Update is called once per frame
@@ -49,6 +50,7 @@ public class SusiGetaController : MonoBehaviour {
             UIManager.i.GetNeta (netaType);
             netaSR.gameObject.SetActive (false);
         } else {
+            explosion.gameObject.SetActive (true);
             explosion.Explosion ();
         }
     }

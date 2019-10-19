@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class UIManager : MonoBehaviour {
     [SerializeField] Text stageNumText;
     [SerializeField] Button retryButton;
     [SerializeField] Button tweetButton;
+    [SerializeField] Image backgroundImage;
+    [SerializeField] Image clearImage;
 
     GetNetaView[] netaViews;
     Vector2 offset = new Vector2 (100f, 0f);
@@ -32,6 +35,8 @@ public class UIManager : MonoBehaviour {
             netaViews[i].Init ();
         }
         resultText.gameObject.SetActive (false);
+        backgroundImage.gameObject.SetActive (false);
+        clearImage.gameObject.SetActive (false);
         stageNumText.text = "ステージ" + (Variables.stageIndex + 1);
         SetActiveButtons (isActive: false);
     }
@@ -63,7 +68,10 @@ public class UIManager : MonoBehaviour {
     }
 
     public void ShowResultText (string result) {
-        resultText.gameObject.SetActive (true);
+        backgroundImage.gameObject.SetActive (true);
+        clearImage.gameObject.SetActive (true);
+        ShowAnim ();
+        //resultText.gameObject.SetActive (true);
         resultText.text = result;
     }
 
@@ -89,6 +97,31 @@ public class UIManager : MonoBehaviour {
     public void SetActiveButtons (bool isActive) {
         retryButton.gameObject.SetActive (isActive);
         tweetButton.gameObject.SetActive (isActive);
+    }
+
+    void ShowAnim () {
+        float duration = 0.5f;
+        clearImage.rectTransform.anchoredPosition = new Vector2 (0, 470);
+        clearImage.rectTransform
+            .DOLocalMoveY (0, duration)
+            .SetEase (Ease.OutBack)
+            .OnComplete (() => {
+                DOVirtual.DelayedCall (0.5f, () => HideAnim ());
+            });
+        //backgroundImage.color = new Color (0, 0, 0, 0);
+        backgroundImage.CrossFadeAlpha (0.5f, duration, true);
+    }
+
+    void HideAnim () {
+        float duration = 0.5f;
+        clearImage.rectTransform
+            .DOLocalMoveY (-470, duration)
+            .SetEase (Ease.InBack)
+            .OnComplete (() => {
+                Variables.gameState = GameState.START;
+            });
+        //backgroundImage.color = new Color (0, 0, 0, 0);
+        backgroundImage.CrossFadeAlpha (0f, duration, true);
     }
 
 }

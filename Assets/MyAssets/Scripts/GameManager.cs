@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        Debug.Log (Variables.gameState);
+        // Debug.Log (Variables.gameState);
         switch (Variables.gameState) {
             case GameState.START:
                 Init ();
@@ -39,18 +39,23 @@ public class GameManager : MonoBehaviour {
                 }
                 break;
             case GameState.CLEAR:
-                uIManager.ShowResultText ("クリア");
-                if (Input.GetMouseButtonDown (0)) {
+
+              
                     if (StageData.i.list.Count == Variables.stageIndex + 1) {
                         Debug.Log ("全クリ");
                         Variables.gameState = GameState.RESULT;
                     } else {
-                        Variables.gameState = GameState.START;
+                        uIManager.ShowResultText ("クリア");
+                        Variables.gameState = GameState.CLEAR_ANIMATION;
                         Variables.stageIndex++;
                     }
-                }
+                
                 break;
-            case GameState.ANIMATION:
+            case GameState.CLEAR_ANIMATION:
+                //DOVirtual.DelayedCall (1f, () => Variables.gameState = GameState.START);
+                Variables.gameState = GameState.DEFAULT;
+                break;
+            case GameState.EXP_ANIMATION:
                 DOVirtual.DelayedCall (1f, () => Variables.gameState = GameState.RESULT);
                 Variables.gameState = GameState.DEFAULT;
                 break;
