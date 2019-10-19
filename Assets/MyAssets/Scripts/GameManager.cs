@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
         targetController.OnStart ();
         handController.OnStart ();
         audioManager.Init ();
+        Variables.speed = 0.6f;
     }
 
     void Init () {

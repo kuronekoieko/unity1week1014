@@ -18,6 +18,18 @@ MonoBehaviour:
   - netaType: 1
     sprite: {fileID: 21300000, guid: 6f3ea977d024d4172a8d618a5c5e465d, type: 3}
   - netaType: 2
-    sprite: {fileID: 21300000, guid: 98e413c75dcce48b7a62d1f80e9d4659, type: 3}
-  - netaType: 3
     sprite: {fileID: 21300000, guid: 4efe05408f60b4b02907c95586b43955, type: 3}
+  - netaType: 3
+    sprite: {fileID: 21300000, guid: 0434bb270508549ccbebed068ec19b08, type: 3}
+  - netaType: 4
+    sprite: {fileID: 21300000, guid: 6d62f32b97ec0457285cdcb1589ad138, type: 3}
+  - netaType: 5
+    sprite: {fileID: 21300000, guid: cc036bef9607942f4b6940546bf8af25, type: 3}
+  - netaType: 6
+    sprite: {fileID: 21300000, guid: f9c479c96c1c4440d9f9b28cfd3592c2, type: 3}
+  - netaType: 7
+    sprite: {fileID: 21300000, guid: 3a97a49ff90994dc1b9f2a8d255e2492, type: 3}
+  - netaType: 8
+    sprite: {fileID: 21300000, guid: 4ed01528c1ad84db5b923c13998c1002, type: 3}
+  - netaType: 9
+    sprite: {fileID: 21300000, guid: 101e915adff294d6b90e75193ccb5448, type: 3}

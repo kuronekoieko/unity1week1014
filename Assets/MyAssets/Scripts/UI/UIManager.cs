@@ -79,6 +79,7 @@ public class UIManager : MonoBehaviour {
         AudioManager.i.PlayOneShot (1);
         Variables.gameState = GameState.START;
         Variables.stageIndex = 0;
+        Variables.speed = 0.6f;
         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync ("Ranking");
     }
     void OnClickTweetButton () {
@@ -120,17 +121,25 @@ public class UIManager : MonoBehaviour {
             .DOLocalMoveY (-470, duration)
             .SetEase (Ease.InBack)
             .OnComplete (() => {
-
-                if (StageData.i.list.Count == Variables.stageIndex + 1) {
-                    Debug.Log ("全クリ");
-                    Variables.gameState = GameState.RESULT;
-                } else {
-                    Variables.gameState = GameState.START;
-                    Variables.stageIndex++;
-                }
+                OnHideAnimEnd ();
             });
         //backgroundImage.color = new Color (0, 0, 0, 0);
         backgroundImage.CrossFadeAlpha (0f, duration, true);
+    }
+
+    void OnHideAnimEnd () {
+        if (StageData.i.list.Count == Variables.stageIndex + 1) {
+            Debug.Log ("全クリ");
+            Variables.gameState = GameState.RESULT;
+        } else {
+            Variables.gameState = GameState.START;
+            Variables.stageIndex++;
+            if ((Variables.stageIndex + 1) % 3 == 1) {
+                Variables.speed -= 0.1f;
+                Variables.speed = Mathf.Clamp (Variables.speed, 0.05f, 0.6f);
+                Debug.Log (Variables.speed);
+            }
+        }
     }
 
 }
