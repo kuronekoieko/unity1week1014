@@ -5,6 +5,7 @@
     NEXT_STAGE,
     CLEAR,
     RESULT,
+    ANIMATION,
 }
 
 public enum SusiGetaState {

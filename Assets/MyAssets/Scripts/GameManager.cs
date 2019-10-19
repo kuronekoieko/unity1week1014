@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
+        Debug.Log (Variables.gameState);
         switch (Variables.gameState) {
             case GameState.START:
                 Init ();
@@ -48,6 +49,10 @@ public class GameManager : MonoBehaviour {
                         Variables.stageIndex++;
                     }
                 }
+                break;
+            case GameState.ANIMATION:
+                DOVirtual.DelayedCall (1f, () => Variables.gameState = GameState.RESULT);
+                Variables.gameState = GameState.DEFAULT;
                 break;
             case GameState.RESULT:
                 uIManager.SetActiveButtons (isActive: true);

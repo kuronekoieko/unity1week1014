@@ -27,7 +27,6 @@ public class HandController : MonoBehaviour {
             0.05f　　　　　　 //時間
         ).OnComplete (() => {
             ReturnHand ();
-
         });
     }
 
