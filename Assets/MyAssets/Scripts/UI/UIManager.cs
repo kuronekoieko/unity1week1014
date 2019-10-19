@@ -16,8 +16,8 @@ public class UIManager : MonoBehaviour {
     [SerializeField] Image clearImage;
 
     GetNetaView[] netaViews;
-    Vector2 offset = new Vector2 (100f, 0f);
-    Vector2 startPos = new Vector2 (-300f, -180f);
+    Vector2 offset = new Vector2 (130f, 0f);
+    Vector2 startPos = new Vector2 (-350f, -180f);
 
     public static UIManager i;
 
@@ -85,9 +85,9 @@ public class UIManager : MonoBehaviour {
         string tweetText = "あなたのスコアは…\n\n" +
             "ステージ：" + (Variables.stageIndex + 1) +
             "\n\nでした！！みんなもやってみよう！！" +
-            "\n\n#Osushi\n#unity1week\n";
+            "\n\n#sushisagashi\n#unity1week\n";
         try {
-            naichilab.UnityRoomTweet.Tweet ("", tweetText);
+            naichilab.UnityRoomTweet.Tweet ("sushisagashi", tweetText);
         } catch (System.Exception) {
 
             throw;
