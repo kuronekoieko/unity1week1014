@@ -134,9 +134,9 @@ public class UIManager : MonoBehaviour {
         } else {
             Variables.gameState = GameState.START;
             Variables.stageIndex++;
-            if ((Variables.stageIndex + 1) % 3 == 1) {
+            if ((Variables.stageIndex + 1) % 2 == 1) {
                 Variables.speed -= 0.1f;
-                Variables.speed = Mathf.Clamp (Variables.speed, 0.05f, 0.6f);
+                Variables.speed = Mathf.Clamp (Variables.speed, 0.1f, 0.6f);
                 Debug.Log (Variables.speed);
             }
         }
