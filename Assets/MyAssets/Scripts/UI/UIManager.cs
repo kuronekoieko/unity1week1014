@@ -118,7 +118,14 @@ public class UIManager : MonoBehaviour {
             .DOLocalMoveY (-470, duration)
             .SetEase (Ease.InBack)
             .OnComplete (() => {
-                Variables.gameState = GameState.START;
+
+                if (StageData.i.list.Count == Variables.stageIndex + 1) {
+                    Debug.Log ("全クリ");
+                    Variables.gameState = GameState.RESULT;
+                } else {
+                    Variables.gameState = GameState.START;
+                    Variables.stageIndex++;
+                }
             });
         //backgroundImage.color = new Color (0, 0, 0, 0);
         backgroundImage.CrossFadeAlpha (0f, duration, true);

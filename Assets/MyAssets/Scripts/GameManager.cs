@@ -40,16 +40,11 @@ public class GameManager : MonoBehaviour {
                 break;
             case GameState.CLEAR:
 
-              
-                    if (StageData.i.list.Count == Variables.stageIndex + 1) {
-                        Debug.Log ("全クリ");
-                        Variables.gameState = GameState.RESULT;
-                    } else {
-                        uIManager.ShowResultText ("クリア");
-                        Variables.gameState = GameState.CLEAR_ANIMATION;
-                        Variables.stageIndex++;
-                    }
+                uIManager.ShowResultText ("クリア");
+                Variables.gameState = GameState.CLEAR_ANIMATION;
+
                 
+
                 break;
             case GameState.CLEAR_ANIMATION:
                 //DOVirtual.DelayedCall (1f, () => Variables.gameState = GameState.START);

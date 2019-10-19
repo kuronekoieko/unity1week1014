@@ -12,7 +12,7 @@ public class SusiGetaManager : MonoBehaviour {
 
     // Start is called before the first frame update
     public void OnStart () {
-        startPos = sushiGetaPos.position;
+        startPos = new Vector2 (-9.6f, sushiGetaPos.position.y);
         SusigetaGenerator ();
         Variables.susiGetaState = SusiGetaState.MOVE_START;
 
