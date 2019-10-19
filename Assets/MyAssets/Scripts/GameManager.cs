@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] HandController handController;
     [SerializeField] UIManager uIManager;
     [SerializeField] TargetController targetController;
+    [SerializeField] AudioManager audioManager;
     // Start is called before the first frame update
     void Start () {
         Variables.gameState = GameState.START;
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour {
         uIManager.OnStart ();
         targetController.OnStart ();
         handController.OnStart ();
+        audioManager.Init ();
     }
 
     void Init () {
@@ -42,8 +44,6 @@ public class GameManager : MonoBehaviour {
 
                 uIManager.ShowResultText ("クリア");
                 Variables.gameState = GameState.CLEAR_ANIMATION;
-
-                
 
                 break;
             case GameState.CLEAR_ANIMATION:

@@ -76,12 +76,13 @@ public class UIManager : MonoBehaviour {
     }
 
     void OnClickRetryButton () {
+        AudioManager.i.PlayOneShot (1);
         Variables.gameState = GameState.START;
         Variables.stageIndex = 0;
         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync ("Ranking");
     }
     void OnClickTweetButton () {
-        //AudioManager.i.PlayOneShot (0);
+        AudioManager.i.PlayOneShot (1);
         string tweetText = "あなたのスコアは…\n\n" +
             "ステージ：" + (Variables.stageIndex + 1) +
             "\n\nでした！！みんなもやってみよう！！" +
@@ -106,6 +107,7 @@ public class UIManager : MonoBehaviour {
             .DOLocalMoveY (0, duration)
             .SetEase (Ease.OutBack)
             .OnComplete (() => {
+                AudioManager.i.PlayOneShot (2);
                 DOVirtual.DelayedCall (0.5f, () => HideAnim ());
             });
         //backgroundImage.color = new Color (0, 0, 0, 0);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
-    public AudioClip[] audioClips;
+    public AudioFile[] audioFiles;
     AudioSource audioSource;
     public static AudioManager i;
 
@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour {
     public void PlayOneShot (int index) {
         AudioClip clip;
         try {
-            clip = audioClips[index];
+            clip = audioFiles[index].audioClip;
         } catch (System.Exception) {
 
             throw;
@@ -25,4 +25,10 @@ public class AudioManager : MonoBehaviour {
         audioSource.PlayOneShot (clip);
     }
 
+}
+
+[System.Serializable]
+public class AudioFile {
+    public AudioClip audioClip;
+    public string soundName;
 }

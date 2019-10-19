@@ -47,9 +47,11 @@ public class SusiGetaController : MonoBehaviour {
 
     void OnTriggerEnter2D (Collider2D other) {
         if (TargetController.i.IsTarget (netaType)) {
+            AudioManager.i.PlayOneShot (0);
             UIManager.i.GetNeta (netaType);
             netaSR.gameObject.SetActive (false);
         } else {
+            AudioManager.i.PlayOneShot (3);
             explosion.gameObject.SetActive (true);
             explosion.Explosion ();
         }
