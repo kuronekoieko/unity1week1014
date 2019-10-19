@@ -4,12 +4,14 @@ using DG.Tweening;
 using UnityEngine;
 
 public class HandController : MonoBehaviour {
-    Vector2 startPos = new Vector3 (1.96f, -2.15f);
-    Vector2 endPos = new Vector3 (1.96f, 0.25f);
+
+    [SerializeField] Transform sushiGetaPos;
+    float startPos;
+    float endPos { get { return sushiGetaPos.position.y - 1f; } }
     bool isMoving;
     // Start is called before the first frame update
     public void OnStart () {
-
+        startPos = transform.position.y;
     }
 
     // Update is called once per frame
@@ -21,7 +23,7 @@ public class HandController : MonoBehaviour {
         if (isMoving) { return; }
         isMoving = true;
         transform.DOMoveY (
-            0.25f, 　　 //移動後の座標
+            endPos, 　　 //移動後の座標
             0.05f　　　　　　 //時間
         ).OnComplete (() => {
             ReturnHand ();
@@ -30,10 +32,10 @@ public class HandController : MonoBehaviour {
     }
 
     void ReturnHand () {
-        transform.DOMoveY (-2.15f, 　　 //移動後の座標
-            0.5f　　　　　　 //時間
+        transform.DOMoveY (startPos, 　　 //移動後の座標
+            0.1f　　　　　　 //時間
         ).OnComplete (() => {
             isMoving = false;
         });
-    }   
+    }
 }

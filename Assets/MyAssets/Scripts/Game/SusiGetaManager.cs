@@ -7,12 +7,15 @@ public class SusiGetaManager : MonoBehaviour {
     [SerializeField] SusiGetaController susiGetaPrefab;
     SusiGetaController[] susis;
     Vector2 offset = new Vector2 (3.2f, 0f);
-    Vector2 startPos = new Vector3 (-9.6f, 0.67f, -1f);
+    [SerializeField] Transform sushiGetaPos;
+    Vector2 startPos;
 
     // Start is called before the first frame update
     public void OnStart () {
+        startPos = sushiGetaPos.position;
         SusigetaGenerator ();
         Variables.susiGetaState = SusiGetaState.MOVE_START;
+
     }
 
     public void Init () {
@@ -67,7 +70,7 @@ public class SusiGetaManager : MonoBehaviour {
     void BorderCheck () {
         int index = Random.Range (0, StageData.i.list[Variables.stageIndex].getas.Length);
         NetaType netaType = StageData.i.list[Variables.stageIndex].getas[index];
-        Vector2 loopPos = new Vector2 (-startPos.x, startPos.y);
+        Vector2 loopPos = new Vector2 (9.6f, startPos.y);
         for (int i = 0; i < susis.Length; i++) {
             if (susis[i].transform.position.x < -7f) {
                 susis[i].transform.position = loopPos;

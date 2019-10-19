@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
         susiGetaManager.OnStart ();
         uIManager.OnStart ();
         targetController.OnStart ();
+        handController.OnStart ();
     }
 
     void Init () {

@@ -13,8 +13,8 @@ public class UIManager : MonoBehaviour {
     [SerializeField] Button tweetButton;
 
     GetNetaView[] netaViews;
-    Vector2 offset = new Vector2 (60f, 0f);
-    Vector2 startPos = new Vector2 (-335.4f, 192.2f);
+    Vector2 offset = new Vector2 (100f, 0f);
+    Vector2 startPos = new Vector2 (-300f, -180f);
 
     public static UIManager i;
 

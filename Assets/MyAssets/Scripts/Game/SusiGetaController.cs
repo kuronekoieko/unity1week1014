@@ -26,21 +26,20 @@ public class SusiGetaController : MonoBehaviour {
 
         Vector2 pos = (Vector2) transform.position + offset;
 
-        /*  //1秒で座標（1,1,1）に移動
+        //1秒で座標（1,1,1）に移動
         transform.DOMove (
             pos, 　　 //移動後の座標
-            1.0f　　　　　　 //時間
+            0.5f　　　　　　 //時間
         ).OnComplete (() => {
             Variables.susiGetaState = SusiGetaState.MOVE_END;
         });
-*/
 
-        transform
-            .DOJump (pos, 1, 1, 1.0f)
-            .SetEase (Ease.Linear)
-            .OnComplete (() => {
-                Variables.susiGetaState = SusiGetaState.MOVE_END;
-            });
+        /*   transform
+                    .DOJump (pos, 1, 1, 0.5f)
+                    .SetEase (Ease.Linear)
+                    .OnComplete (() => {
+                        Variables.susiGetaState = SusiGetaState.MOVE_END;
+                    });*/
 
     }
 
