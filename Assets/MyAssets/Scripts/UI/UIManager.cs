@@ -79,7 +79,7 @@ public class UIManager : MonoBehaviour {
         AudioManager.i.PlayOneShot (1);
         Variables.gameState = GameState.START;
         Variables.stageIndex = 0;
-        Variables.speed = 0.6f;
+       // Variables.speed = 0.6f;
         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync ("Ranking");
     }
     void OnClickTweetButton () {
@@ -134,12 +134,29 @@ public class UIManager : MonoBehaviour {
         } else {
             Variables.gameState = GameState.START;
             Variables.stageIndex++;
-            if ((Variables.stageIndex + 1) % 3 == 1) {
+            //SetSpeed ();
+        }
+    }
+    /*void SetSpeed () {
+            int stageNum = Variables.stageIndex + 1;
+            if (IsChangeSpeed (stageNum)) {
                 Variables.speed -= 0.1f;
-                Variables.speed = Mathf.Clamp (Variables.speed, 0.1f, 0.6f);
-                Debug.Log (Variables.speed);
+            }
+            Variables.speed = Mathf.Clamp (Variables.speed, 0.1f, 0.6f);
+            Debug.Log (stageNum + "  " + Variables.speed);
+        } */
+
+    bool IsChangeSpeed (int stageNum) {
+        if (stageNum <= 5) {
+            if (stageNum % 3 == 1) {
+                return true;
+            }
+        } else {
+            if (stageNum % 2 == 1) {
+                return true;
             }
         }
+        return false;
     }
 
 }

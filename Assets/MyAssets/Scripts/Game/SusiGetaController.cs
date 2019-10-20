@@ -11,7 +11,7 @@ public class SusiGetaController : MonoBehaviour {
 
     // Start is called before the first frame update
     public void OnStart () {
-        
+
     }
 
     public void Init () {
@@ -27,10 +27,12 @@ public class SusiGetaController : MonoBehaviour {
     public void MoveStart (Vector2 offset) {
 
         Vector2 pos = (Vector2) transform.position + offset;
+        float speed = StageData.i.list[Variables.stageIndex].speed;
+        speed = Mathf.Clamp (speed, 0.1f, 0.6f);
         //1秒で座標（1,1,1）に移動
         transform.DOMove (
             pos, 　　 //移動後の座標
-            Variables.speed　　　　　　 //時間
+            speed　　　　　　 //時間
         ).OnComplete (() => {
             Variables.susiGetaState = SusiGetaState.MOVE_END;
         });
