@@ -8,15 +8,17 @@ public class SusiGetaController : MonoBehaviour {
     [SerializeField] SpriteRenderer netaSR;
     [SerializeField] ExplosionController explosion;
     NetaType netaType;
+    CircleCollider2D circleCollider2D;
 
     // Start is called before the first frame update
     public void OnStart () {
-
+        circleCollider2D = GetComponent<CircleCollider2D> ();
     }
 
     public void Init () {
         netaSR.gameObject.SetActive (true);
         explosion.gameObject.SetActive (false);
+        circleCollider2D.enabled = true;
     }
 
     // Update is called once per frame
@@ -51,6 +53,7 @@ public class SusiGetaController : MonoBehaviour {
             AudioManager.i.PlayOneShot (0);
             UIManager.i.GetNeta (netaType);
             netaSR.gameObject.SetActive (false);
+            circleCollider2D.enabled = false;
         } else {
             AudioManager.i.PlayOneShot (3);
             explosion.gameObject.SetActive (true);
@@ -67,5 +70,6 @@ public class SusiGetaController : MonoBehaviour {
         this.netaType = netaType;
         netaSR.sprite = netaProperty.sprite;
         netaSR.gameObject.SetActive (true);
+        circleCollider2D.enabled = true;
     }
 }
