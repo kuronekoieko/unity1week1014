@@ -530,7 +530,7 @@ MonoBehaviour:
   audioFiles:
   - audioClip: {fileID: 8300000, guid: 801a2e0989b4548d3aeb26fd2f5da9c1, type: 3}
     soundName: "\u6B63\u89E3\u97F3"
-  - audioClip: {fileID: 8300000, guid: e97ce997717b040dc990f8ce93265bac, type: 3}
+  - audioClip: {fileID: 8300000, guid: 3aa9c4209005349e896d1fa5f2f6574d, type: 3}
     soundName: "\u30DC\u30BF\u30F3\u30BF\u30C3\u30D7"
   - audioClip: {fileID: 8300000, guid: 966e2fbdd917f403db04d7b758a78baa, type: 3}
     soundName: "\u6210\u529F\u51FA\u73FE\u6642"
