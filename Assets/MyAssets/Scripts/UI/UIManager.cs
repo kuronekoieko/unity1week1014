@@ -137,14 +137,16 @@ public class UIManager : MonoBehaviour {
     }
 
     void OnHideAnimEnd () {
+
         if (StageData.i.list.Count == Variables.stageIndex + 1) {
             //全クリ
             Variables.gameState = GameState.RESULT;
         } else {
             //通常クリア
             Variables.gameState = GameState.START;
-            Variables.stageIndex++;
+            //Variables.stageIndex = 18;
         }
+        Variables.stageIndex++;
     }
 
 }

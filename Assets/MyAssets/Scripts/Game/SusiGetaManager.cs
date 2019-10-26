@@ -70,6 +70,11 @@ public class SusiGetaManager : MonoBehaviour {
     void BorderCheck () {
         int index = Random.Range (0, StageData.i.list[Variables.stageIndex].getas.Length);
         NetaType netaType = StageData.i.list[Variables.stageIndex].getas[index];
+
+        if (Variables.stageIndex == 19) {
+            //netaType = NetaType.KURONEKO;
+        }
+
         Vector2 loopPos = new Vector2 (9.6f, startPos.y);
         for (int i = 0; i < susis.Length; i++) {
             if (susis[i].transform.position.x < -7f) {
