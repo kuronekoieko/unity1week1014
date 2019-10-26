@@ -58,8 +58,8 @@ public class UIManager : MonoBehaviour {
     }
 
     public void GetNeta (NetaType netaType) {
-        for (int i = 0; i < netaViews.Length; i++) {
 
+        for (int i = 0; i < netaViews.Length; i++) {
             if (!netaViews[i].isFillGeta) {
                 netaViews[i].SetNeta (netaType);
                 return;

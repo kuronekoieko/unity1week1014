@@ -15,6 +15,7 @@ public class GetNetaView : MonoBehaviour {
     }
 
     public void Init () {
+
         netaImage.gameObject.SetActive (false);
         isFillGeta = false;
     }
@@ -26,7 +27,7 @@ public class GetNetaView : MonoBehaviour {
         if (netaProperty == null) { return; }
 
         netaImage.sprite = netaProperty.sprite;
-        //netaImage.SetNativeSize ();
+        netaImage.SetNativeSize ();
         netaImage.gameObject.SetActive (true);
         //netaImage.rectTransform.localScale = Vector3.one;
 
