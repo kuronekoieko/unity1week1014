@@ -73,6 +73,7 @@ public class UIManager : MonoBehaviour {
 
     void OnClickRetryButton () {
         AudioManager.i.PlayOneShot (1);
+        //リセットするとやる気をなくすのでやらない
         //AudioManager.i.RePlayBGM ();
         Variables.gameState = GameState.START;
         Variables.stageIndex = 0;
