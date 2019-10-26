@@ -8,7 +8,6 @@ public class UIManager : MonoBehaviour {
 
     [SerializeField] GetNetaView getNetaViewPrefab;
     [SerializeField] RectTransform getNetaViewParent;
-    [SerializeField] Text resultText;
     [SerializeField] Text stageNumText;
     [SerializeField] Button retryButton;
     [SerializeField] Button tweetButton;
@@ -34,7 +33,6 @@ public class UIManager : MonoBehaviour {
         for (int i = 0; i < netaViews.Length; i++) {
             netaViews[i].Init ();
         }
-        resultText.gameObject.SetActive (false);
         backgroundImage.gameObject.SetActive (false);
         clearImage.gameObject.SetActive (false);
         stageNumText.text = "ステージ" + (Variables.stageIndex + 1);
@@ -67,12 +65,10 @@ public class UIManager : MonoBehaviour {
         }
     }
 
-    public void ShowResultText (string result) {
+    public void ShowClearImage () {
         backgroundImage.gameObject.SetActive (true);
         clearImage.gameObject.SetActive (true);
         ShowAnim ();
-        //resultText.gameObject.SetActive (true);
-        resultText.text = result;
     }
 
     void OnClickRetryButton () {
@@ -80,7 +76,6 @@ public class UIManager : MonoBehaviour {
         //AudioManager.i.RePlayBGM ();
         Variables.gameState = GameState.START;
         Variables.stageIndex = 0;
-        // Variables.speed = 0.6f;
         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync ("Ranking");
     }
     void OnClickTweetButton () {
@@ -112,8 +107,14 @@ public class UIManager : MonoBehaviour {
                 AudioManager.i.PlayOneShot (2);
                 DOVirtual.DelayedCall (0.5f, () => HideAnim ());
             });
-        //backgroundImage.color = new Color (0, 0, 0, 0);
-        backgroundImage.CrossFadeAlpha (0.5f, duration, true);
+
+        //背景画像を暗くするアニメーション
+        DOTween.ToAlpha (
+                () => backgroundImage.color,
+                color => backgroundImage.color = color,
+                endValue : 0.3f,
+                duration : duration)
+            .SetEase (Ease.Linear);
     }
 
     void HideAnim () {
@@ -124,40 +125,25 @@ public class UIManager : MonoBehaviour {
             .OnComplete (() => {
                 OnHideAnimEnd ();
             });
-        //backgroundImage.color = new Color (0, 0, 0, 0);
-        backgroundImage.CrossFadeAlpha (0f, duration, true);
+
+        //背景画像を暗くするアニメーション
+        DOTween.ToAlpha (
+                () => backgroundImage.color,
+                color => backgroundImage.color = color,
+                endValue : 0f,
+                duration : duration)
+            .SetEase (Ease.Linear);
     }
 
     void OnHideAnimEnd () {
         if (StageData.i.list.Count == Variables.stageIndex + 1) {
-            Debug.Log ("全クリ");
+            //全クリ
             Variables.gameState = GameState.RESULT;
         } else {
+            //通常クリア
             Variables.gameState = GameState.START;
             Variables.stageIndex++;
-            //SetSpeed ();
         }
-    }
-    /*void SetSpeed () {
-            int stageNum = Variables.stageIndex + 1;
-            if (IsChangeSpeed (stageNum)) {
-                Variables.speed -= 0.1f;
-            }
-            Variables.speed = Mathf.Clamp (Variables.speed, 0.1f, 0.6f);
-            Debug.Log (stageNum + "  " + Variables.speed);
-        } */
-
-    bool IsChangeSpeed (int stageNum) {
-        if (stageNum <= 5) {
-            if (stageNum % 3 == 1) {
-                return true;
-            }
-        } else {
-            if (stageNum % 2 == 1) {
-                return true;
-            }
-        }
-        return false;
     }
 
 }

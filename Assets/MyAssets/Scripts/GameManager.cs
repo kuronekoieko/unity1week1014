@@ -10,6 +10,11 @@ public class GameManager : MonoBehaviour {
     [SerializeField] UIManager uIManager;
     [SerializeField] TargetController targetController;
     [SerializeField] AudioManager audioManager;
+
+    void Awake () {
+        Application.targetFrameRate = 60; //60FPSに設定
+    }
+
     // Start is called before the first frame update
     void Start () {
         Variables.gameState = GameState.START;
@@ -43,7 +48,7 @@ public class GameManager : MonoBehaviour {
                 break;
             case GameState.CLEAR:
 
-                uIManager.ShowResultText ("クリア");
+                uIManager.ShowClearImage ();
                 Variables.gameState = GameState.CLEAR_ANIMATION;
 
                 break;
