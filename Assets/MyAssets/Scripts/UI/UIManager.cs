@@ -77,9 +77,10 @@ public class UIManager : MonoBehaviour {
 
     void OnClickRetryButton () {
         AudioManager.i.PlayOneShot (1);
+        //AudioManager.i.RePlayBGM ();
         Variables.gameState = GameState.START;
         Variables.stageIndex = 0;
-       // Variables.speed = 0.6f;
+        // Variables.speed = 0.6f;
         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync ("Ranking");
     }
     void OnClickTweetButton () {

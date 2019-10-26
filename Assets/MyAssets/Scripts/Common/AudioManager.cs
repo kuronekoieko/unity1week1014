@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
-    public AudioFile[] audioFiles;
+    [SerializeField] AudioSource bgmAS;
+    [SerializeField] AudioFile[] audioFiles;
     AudioSource audioSource;
     public static AudioManager i;
 
@@ -23,6 +24,10 @@ public class AudioManager : MonoBehaviour {
 
         if (!clip) { return; }
         audioSource.PlayOneShot (clip);
+    }
+
+    public void RePlayBGM () {
+        bgmAS.Play ();
     }
 
 }

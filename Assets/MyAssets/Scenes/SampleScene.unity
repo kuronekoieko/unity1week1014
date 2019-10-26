@@ -526,6 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e10e41541bd42ceabbb02f27744865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bgmAS: {fileID: 1955442995}
   audioFiles:
   - audioClip: {fileID: 8300000, guid: 801a2e0989b4548d3aeb26fd2f5da9c1, type: 3}
     soundName: "\u6B63\u89E3\u97F3"
