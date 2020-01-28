@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image clearImage;
 
     GetNetaView[] netaViews;
-    Vector2 offset = new Vector2(130f, 0f);
+    Vector2 offset = new Vector2(200f, 0f);
     Vector2 startPos = new Vector2(-550f, -280f);
 
     public static UIManager i;
@@ -99,7 +99,7 @@ public class UIManager : MonoBehaviour
             "\n\n#sushisagashi\n#unity1week\n";
         try
         {
-            naichilab.UnityRoomTweet.Tweet("sushisagashi", tweetText);
+            //naichilab.UnityRoomTweet.Tweet("sushisagashi", tweetText);
         }
         catch (System.Exception)
         {
