@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
         }
         backgroundImage.gameObject.SetActive(false);
         clearImage.gameObject.SetActive(false);
-        stageNumText.text = "ステージ" + (Variables.stageIndex + 1);
+        stageNumText.text = "レベル" + (Variables.stageIndex + 1);
         SetActiveButtons(isActive: false);
     }
 
