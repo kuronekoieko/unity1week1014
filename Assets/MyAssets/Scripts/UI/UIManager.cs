@@ -28,7 +28,8 @@ public class UIManager : MonoBehaviour
         i = this;
         retryButton.onClick.AddListener(OnClickRetryButton);
         tweetButton.onClick.AddListener(OnClickTweetButton);
-
+        // iosビルドでsdk関連でエラーが出てたので無効化
+        tweetButton.gameObject.SetActive(false);
     }
 
     public void Init()
@@ -111,7 +112,7 @@ public class UIManager : MonoBehaviour
     public void SetActiveButtons(bool isActive)
     {
         retryButton.gameObject.SetActive(isActive);
-        tweetButton.gameObject.SetActive(isActive);
+        //tweetButton.gameObject.SetActive(isActive);
     }
 
     void ShowAnim()
